@@ -9,20 +9,8 @@ class ProfileController < ApplicationController
   end
 
   def unfollow
-    make_it_a_unfriend_request
-
     current_user.unfollow(@user)
-    
     redirect_to profile_path(@user)
-  end
-
-  def accept
-    current_user.accept_follow_request_of(@user)
-  end
-  private
-
-  def make_it_a_unfriend_request
-    @user.unfollow(current_user) if @user.mutual_following_with?(current_user)
   end
 
   def set_user

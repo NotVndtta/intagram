@@ -3,9 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  def self.ransackable_attributes(auth_object = nil)
-    %w[email] 
-  end
   followability
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
          has_many :followees, through: :followed_users
