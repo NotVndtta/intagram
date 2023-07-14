@@ -16,4 +16,5 @@
 <% post.images.each do |image|%>
     <%= image_tag(image, style: "object-fit: contain; width: 450px; height: 450px;")%>
   <% end%>
+  <p><%= link_to post.user.email, post.user, style: "z-index:" %></p>
 </div>

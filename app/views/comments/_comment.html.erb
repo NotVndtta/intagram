@@ -1,4 +1,7 @@
 <div>
+<p><%= link_to current_user.email, current_user, style: "z-index:" %></p>
      <p><%= comment.body %></p>
+      <%if current_user == comment.post.user%>
      <%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+     <%end%>
    </div>
